@@ -5,16 +5,18 @@
 using namespace std;
 int main() {
 
-    HashTable table(10);
+    HashTable table(10); // Hash table with size 10
 
-    // switch case menu options go here
-    // Example of inserting users
+    // to do: switch case menu options go here
+
+
+    // Example of registering users
     table.insertUser("user1", "password123");
     table.insertUser("user2", "password456");
 
-    // Example of logging in
-    table.loginUser("user1", "password123");
-    table.loginUser("user2", "wrongpassword"); // purposely using wrong password
+    // Example of login attempts
+    table.loginUser("user1", "password123");   // should succeed, username and passwords match
+    table.loginUser("user2", "wrongpassword"); // purposely using wrong password, should fail
 
     return 0;
 }

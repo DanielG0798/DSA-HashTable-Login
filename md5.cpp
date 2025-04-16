@@ -1,3 +1,6 @@
+// This is the main md5 implementation
+// We will break this down in a PowerPoint, going over the general process later
+
 #include "md5.h"
 #include <cstring>
 #include <iostream>
@@ -6,6 +9,7 @@
 
 typedef unsigned int uint4;
 using namespace std;
+
 class MD5 {
 public:
     MD5();

@@ -9,16 +9,16 @@
 using namespace std;
 class HashTable {
 private:
-    vector<User> table;
-    int tableSize;
+    vector<User> table;     // Table for storing user accounts
+    int tableSize;          // Size of the hash table
 
-    int hashFunction(const string& key);
-    int findIndex(const string& username);
+    int hashFunction(const string& key);        // Computes hash index for a key (similar to h%7 in class)
+    int findIndex(const string& username);      // Collision detection (linear probing)
 
 public:
     explicit HashTable(int size);
-    bool insertUser(const string& username, const string& password);
-    bool loginUser(const string& username, const string& password);
+    bool insertUser(const string& username, const string& password);    // Adds user
+    bool loginUser(const string& username, const string& password);     // Verifies login
 };
 
 #endif
