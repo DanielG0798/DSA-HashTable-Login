@@ -1,0 +1,13 @@
+# CMake build
+cmake-build-*/
+
+# CLion specific
+.idea/
+
+# Windows
+*.exe
+*.dll
+
+# Temporary files
+*.log
+*.tmp
