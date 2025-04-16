@@ -1,8 +1,12 @@
 # DSA-HashTable-Login
 
 Developing a hash table for a login screen with encrypted user passwords.
-
-# Start
+## Table of Contents
+- [Installation](#installation)
+- [Contributions](#contributions)
+- [Disclaimer](#disclaimer)
+  
+## Installation
 ### CLion(original)
 1. Open CLion
 2. Click "Get from VCS" on the welcome screen (or go to File -> New -> Project from Version Control)
@@ -43,8 +47,36 @@ cmake --build build
 ```
 cmake --build build
 ```
+## Contributions
 
-## Disclaimer: MD5 Hashing Vulnerabilities
+Class Names
+
+- Use PascalCase (e.g., HashTable, LoginScreen, User)
+  
+File Names
+- Use snake_case for all file names (e.g., login_screen.cpp, light_screen.h)
+  
+Methods & Variables
+
+- Use camelCase (e.g., loginUser, hashFunction, userName)
+- Use clear and descriptive names
+
+### Adding new feature
+1. Create a new branch from main:
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
+2. Commit with clear message:
+   ```bash
+    git commit -m "your feature description"
+    ```
+3. Push and open a Pull Request:
+   ```bash
+    git push --set-upstream origin feature/your-feature-name
+   ```
+## Disclaimer
+### MD5 Hashing Vulnerabilities
+
 The MD5 hashing algorithm is considered cryptographically broken and unsuitable for further use in security-sensitive applications. It is vulnerable to various attacks, including collision and preimage attacks. For applications where security is a priority (such as password storage), it is recommended to use more secure hashing algorithms like bcrypt, scrypt, or Argon2.
 
 In this project, MD5 is used for educational purposes to demonstrate basic hashing and user authentication. It is strongly discouraged to use MD5 in production systems for real-world applications involving sensitive data.
