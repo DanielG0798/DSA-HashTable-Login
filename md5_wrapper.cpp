@@ -1,4 +1,4 @@
-#include "md5wrapper.h"
+#include "md5_wrapper.h"
 #include "md5.h"
 
 std::string md5wrapper::getHashFromString(const std::string& text) {

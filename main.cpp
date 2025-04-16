@@ -1,6 +1,6 @@
 // main.cpp
 #include <iostream>
-#include "hashtable.h"
+#include "hash_table.h"
 
 using namespace std;
 int main() {
