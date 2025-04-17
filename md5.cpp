@@ -1,28 +1,27 @@
-#include "md5.h"
 #include <cstring>
-#include <iostream>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
+#include "md5.h"
+using namespace std;
 
 typedef unsigned int uint4;
-using namespace std;
+
 class MD5 {
+private:
+    unsigned char buffer[64], digest[16];
+    uint4 state[4], count[2];
+    bool finalized;
+
+    void transform(const uint4 block[16]);
+    void encode(const uint4* input, unsigned char* output, size_t length) const;
+    void decode(const unsigned char* input, uint4* output, size_t length) const;
+
 public:
     MD5();
     void update(const unsigned char* input, size_t length);
     void finalize();
     string hexdigest() const;
-
-private:
-    void transform(const uint4 block[16]);
-    void encode(const uint4* input, unsigned char* output, size_t length) const;
-    void decode(const unsigned char* input, uint4* output, size_t length) const;
-
-    bool finalized;
-    unsigned char buffer[64];
-    uint4 count[2];
-    uint4 state[4];
-    unsigned char digest[16];
 };
 
 inline uint4 F(uint4 x, uint4 y, uint4 z) { return (x & y) | (~x & z); }
