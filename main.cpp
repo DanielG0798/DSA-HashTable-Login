@@ -1,10 +1,8 @@
-// main.cpp
 #include <iostream>
 #include "hash_table.h"
-
 using namespace std;
-int main() {
 
+int main() {
     HashTable table(10);
 
     // switch case menu options go here
