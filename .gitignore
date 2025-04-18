@@ -1,5 +1,6 @@
 # CMake build
 cmake-build-*/
+cmake-build-debug/
 
 # CLion specific
 .idea/
