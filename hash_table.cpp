@@ -7,7 +7,7 @@ HashTable::HashTable(int size) : tableSize(size) {
     table.resize(tableSize);
 }
 // Hash Table insertion formula
-int HashTable::hashFunction(const string& key) {
+int HashTable::hashFunction(const string& key) const {
     int hash = 0;
     for (char c : key) {                    // Looping through each letter in the given username (key)
         hash = (hash * 31 + c) % tableSize; // Prime number helps with distribution

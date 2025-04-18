@@ -13,7 +13,7 @@ private:
     vector<User> table;
     int tableSize;
 
-    int hashFunction(const string& key);
+    int hashFunction(const string& key) const;
     int findIndex(const string& username);
 
 public:

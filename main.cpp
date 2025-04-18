@@ -3,7 +3,7 @@
 #include "hash_table.h"
 using namespace std;
 
-bool creationOptions(HashTable &ht, int &nextCase, string &userName) {
+static bool creationOptions(HashTable &ht, int &nextCase, string &userName) {
 	bool loopCase = true, retryPassword = true, loginSuccess = false;
 	int choice, passwordRetries;
 	string currentPassword, passwordConfirm;
@@ -70,7 +70,7 @@ bool creationOptions(HashTable &ht, int &nextCase, string &userName) {
 		}
 	}
 };
-void profileOptions(HashTable& ht, int& nextCase, string userName) {
+static void profileOptions(HashTable& ht, int& nextCase, string userName) {
 	bool loopCase = true, retryPassword = true, loginSuccess = false;
 	int secondChoice;
 	string oldPassword, passwordChange, passwordConfirm, currentPassword;

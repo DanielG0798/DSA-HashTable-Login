@@ -24,31 +24,38 @@ public:
     string hexdigest() const;
 };
 
-inline uint4 F(uint4 x, uint4 y, uint4 z) { return (x & y) | (~x & z); }
-inline uint4 G(uint4 x, uint4 y, uint4 z) { return (x & z) | (y & ~z); }
-inline uint4 H(uint4 x, uint4 y, uint4 z) { return x ^ y ^ z; }
-inline uint4 I(uint4 x, uint4 y, uint4 z) { return y ^ (x | ~z); }
+inline static uint4 F(uint4 x, uint4 y, uint4 z) { return (x & y) | (~x & z); }
+inline static uint4 G(uint4 x, uint4 y, uint4 z) { return (x & z) | (y & ~z); }
+inline static uint4 H(uint4 x, uint4 y, uint4 z) { return x ^ y ^ z; }
+inline static uint4 I(uint4 x, uint4 y, uint4 z) { return y ^ (x | ~z); }
 
-inline uint4 rotate_left(uint4 x, int n) { return (x << n) | (x >> (32 - n)); }
+inline static uint4 rotate_left(uint4 x, int n) { return (x << n) | (x >> (32 - n)); }
 
-inline void FF(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
+inline static void FF(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
     a += F(b, c, d) + x + ac;
     a = rotate_left(a, s) + b;
 }
-inline void GG(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
+inline static void GG(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
     a += G(b, c, d) + x + ac;
     a = rotate_left(a, s) + b;
 }
-inline void HH(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
+inline static void HH(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
     a += H(b, c, d) + x + ac;
     a = rotate_left(a, s) + b;
 }
-inline void II(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
+inline static void II(uint4& a, uint4 b, uint4 c, uint4 d, uint4 x, uint4 s, uint4 ac) {
     a += I(b, c, d) + x + ac;
     a = rotate_left(a, s) + b;
 }
 
 MD5::MD5() {
+    for (int i = 0; i < 16; i++) {
+        buffer[i] = NULL;
+        digest[i] = NULL;
+    }
+    for (int i = 16; i < 64; i++) {
+        buffer[i] = NULL;
+    }
     finalized = false;
     count[0] = count[1] = 0;
     state[0] = 0x67452301;
