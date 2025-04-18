@@ -8,7 +8,7 @@ class User {
 public:
     string username = "", passwordHash = "";
     bool isEmpty = true;
-
+    int loginAttempts = 0;
     User() {}   // Allow empty constructor
     User(const string& u, const string& h) : username(u), passwordHash(h), isEmpty(false) {}
 
@@ -17,6 +17,7 @@ public:
         username = "";
         passwordHash = "";
         isEmpty = true;
+        loginAttempts = 0;
     }
 };
 
